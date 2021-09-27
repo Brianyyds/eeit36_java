@@ -6,6 +6,7 @@ public class Brad03 {
 		byte var1;
 		byte var2 = 123; 
 		byte var3 = 123;
+		
 	}
 
 }
