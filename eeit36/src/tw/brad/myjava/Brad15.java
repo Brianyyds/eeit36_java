@@ -12,12 +12,14 @@ public class Brad15 {
 		System.out.println("----");
 		
 		int i = 0;
-		for ( ; i<10 ; ) {
+		for ( header() ; i<10 ; ) {
 			System.out.println(i++);
 		}
-		
-		
-		
+	}
+	
+	public static void header() {
+		System.out.println("Brad Big Company");
+		System.out.println("------");
 	}
 
 }
