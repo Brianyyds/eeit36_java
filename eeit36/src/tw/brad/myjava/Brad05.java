@@ -18,7 +18,7 @@ public class Brad05 {
 		System.out.printf("%d / %d = %d ...... %d\n", v1, v2, r4, r41);
 		
 		double v11 = v1;
-		double r5 = v11 / v2;
+		double r5 = v11 / v2;	// double 運算方式
 		System.out.printf("%d / %d = %f\n", v1, v2, r5);
 		// 閱讀性 => 維護性
 	}

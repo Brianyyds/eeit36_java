@@ -19,7 +19,7 @@ public class Brad07 {
 		int r3 = x * y;
 		int r41 = x / y;
 		int r42 = x % y;
-		double r5 = x*1.0 / y;
+		double r5 = (x*1.0) / y; // int * double => double / int => double
 		
 		System.out.printf("%d + %d = %d\n", x , y , r1);
 		System.out.printf("%d - %d = %d\n", x , y , r2);
