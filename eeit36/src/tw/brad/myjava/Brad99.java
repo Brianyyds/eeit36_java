@@ -8,7 +8,6 @@ public class Brad99 {
 		final int ROW = 4;
 		final int COL = 5;
 		
-		
 		for (int k = 0; k < ROW; k++) {
 			for (int j = 1; j <= 9 ; j++) {
 				for (int i = START; i < START + COL ; i++) {
