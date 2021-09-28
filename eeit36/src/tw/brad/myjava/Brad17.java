@@ -8,8 +8,15 @@ public class Brad17 {
 		
 		for (int i=0; i<100; i++) {
 			int point = (int)(Math.random()*6) + 1;	// 1 ~ 6
-			
-			
+			switch(point) {
+				case 1: p1++; break;
+				case 2: p2++; break;
+				case 3: p3++; break;
+				case 4: p4++; break;
+				case 5: p5++; break;
+				case 6: p6++; break;
+				default: System.out.println("debug:" + point);
+			}
 		}
 		
 		System.out.printf("%d點出現%d次\n", 1, p1);
