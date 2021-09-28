@@ -12,8 +12,8 @@ public class Brad15 {
 		System.out.println("----");
 		
 		int i = 0;
-		for ( ; i<10 ; i++) {
-			System.out.println(i);
+		for ( ; i<10 ; ) {
+			System.out.println(i++);
 		}
 		
 		
