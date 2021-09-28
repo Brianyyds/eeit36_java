@@ -3,8 +3,9 @@ package tw.brad.myjava;
 public class Brad13 {
 
 	public static void main(String[] args) {
-		// 月份天數
-		int month = (int) (Math.random() * 12) + 1;	// 1,2,3 ,...12
+		int year = 2020;
+		// 年份月份天數
+		int month = 2; //(int) (Math.random() * 12) + 1;	// 1,2,3 ,...12
 		int days;
 
 		switch (month) {
@@ -17,7 +18,19 @@ public class Brad13 {
 				break;
 			//---------------------------------------
 			case 2:
-				days = 28;
+				if (year % 4 == 0) {
+					if (year % 100 == 0) {
+						if (year % 400 == 0) {
+							days = 29;
+						}else {
+							days = 28;
+						}
+					}else {
+						days = 29;
+					}
+				}else {
+					days = 28;
+				}
 				break;
 				
 			default:
@@ -45,7 +58,7 @@ public class Brad13 {
 //			default -> 0;
 //		}; 
 		
-		System.out.printf("%d月有%d天", month, days);
+		System.out.printf("%d年%d月有%d天", year, month, days);
 	}
 
 }
