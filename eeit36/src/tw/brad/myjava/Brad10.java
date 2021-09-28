@@ -4,7 +4,7 @@ public class Brad10 {
 
 	public static void main(String[] args) {
 		// if 判斷式
-		// if (boolean){程式區塊}
+		// if (boolean){程式區塊}else{程式區塊}
 		
 		int a = 10;
 		if (a != 10) {
