@@ -25,6 +25,19 @@ public class PokerV3 {
 		}
 		System.out.println("---");
 		System.out.println(endTime - startTime);
+		System.out.println("---");
+		
+		// 以下發給4個玩家, 各家13張
+		int[][] players = new int[4][13];
+		for (int i=0; i<nums; i++) {
+			players[i%4][i/4] = poker[i];
+		}
+		
+		for (int card : players[1]) {
+			System.out.println(card);
+		}
+		
+		
 		
 	}
 
