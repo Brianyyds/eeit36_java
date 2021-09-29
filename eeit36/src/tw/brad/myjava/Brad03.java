@@ -22,6 +22,9 @@ public class Brad03 {
 		byte var4 = -128;
 		// 宣告 => 變數的儲存空間大小
 		
+		int 變數1 = 123;
+		System.out.println(變數1);
+		
 	}
 
 }
