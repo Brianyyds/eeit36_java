@@ -7,7 +7,17 @@ public class Brad18 {
 		
 		for (int i=0; i<100000; i++) {
 			int point = (int)(Math.random()*9) + 1;	// point => 1 ~ 9
+			
 			p[ point>=7 ? point-3 : point ]++;
+			
+//			if (point >= 7) {
+//				p[point-3]++;
+//			}else {
+//				p[point]++;
+//			}
+			
+			// 除錯 => debug => 找臭蟲
+			
 		}
 
 		for (int i = 1; i<=6; i++) {	// i => 0, 1, 2, 3, 4, 5
