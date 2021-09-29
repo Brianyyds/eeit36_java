@@ -3,7 +3,6 @@ package tw.brad.myjava;
 public class PokerV3 {
 
 	public static void main(String[] args) {
-		long startTime = System.currentTimeMillis();
 		int nums = 52;
 		int[] poker = new int[nums];
 		
@@ -18,14 +17,6 @@ public class PokerV3 {
 			poker[rand] = poker[i];
 			poker[i] = temp;
 		}
-		long endTime = System.currentTimeMillis();
-		
-		for(int card : poker) {
-			System.out.println(card);
-		}
-		System.out.println("---");
-		System.out.println(endTime - startTime);
-		System.out.println("---");
 		
 		// 以下發給4個玩家, 各家13張
 		int[][] players = new int[4][13];
@@ -33,11 +24,23 @@ public class PokerV3 {
 			players[i%4][i/4] = poker[i];
 		}
 		
-		for (int card : players[1]) {
-			System.out.println(card);
+		// 四家攤牌
+		for (int[] player : players) {
+			for (int card : player) {
+				System.out.print(card + " ");
+			}
+			System.out.println();
 		}
 		
-		
+//		System.out.println("---");
+//		
+//		for (int j=0; j<13; j++) {
+//			for (int i=0; i<players.length; i++) {
+//				// [i][j]
+//				System.out.print(players[i][j] + " ");
+//			}
+//			System.out.println();
+//		}
 		
 	}
 
