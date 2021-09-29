@@ -14,6 +14,12 @@ public class Brad18 {
 			System.out.printf("%d點出現%d次\n", i, p[i]);
 		}
 		
+		System.out.println("---");
+		
+		for (int value : p) {
+			System.out.println(value);
+		}
+		
 	}
 
 }
