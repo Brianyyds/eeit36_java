@@ -24,10 +24,14 @@ public class PokerV3 {
 			players[i%4][i/4] = poker[i];
 		}
 		
+		String[] suits = {"黑桃", "紅心","方塊","梅花" };	//
+		String[] values = {"A ","2 ","3 ","4 ","5 ","6 ","7 ",
+				"8 ","9 ","10","J ","Q ","K "};
+		
 		// 四家攤牌
 		for (int[] player : players) {
 			for (int card : player) {
-				System.out.print(card + " ");
+				System.out.print(suits[card/13] + values[card%13] + " ");
 			}
 			System.out.println();
 		}
