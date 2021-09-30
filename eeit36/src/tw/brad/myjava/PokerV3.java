@@ -29,6 +29,23 @@ public class PokerV3 {
 		String[] suits = {"黑桃", "紅心","方塊","梅花" };	//
 		String[] values = {"A ","2 ","3 ","4 ","5 ","6 ","7 ",
 				"8 ","9 ","10","J ","Q ","K "};
+
+		for (int[] player : players) {
+			for (int card : player) {
+				System.out.print(card + " ");
+			}
+			System.out.println();
+		}
+		System.out.println("--------------------");
+
+		for (int[] player : players) {
+			Arrays.sort(player);
+			for (int card : player) {
+				System.out.print(card + " ");
+			}
+			System.out.println();
+		}
+		System.out.println("--------------------");
 		
 		// 四家攤牌
 		for (int[] player : players) {
