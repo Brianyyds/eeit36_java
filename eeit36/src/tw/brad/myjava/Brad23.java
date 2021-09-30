@@ -6,6 +6,7 @@ public class Brad23 {
 
 	public static void main(String[] args) {
 		// 1 + 2 + ... + n = ?
+		System.out.println("計算: 1 + 2 + ... + n = ?");
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("n = ");
 		int n = scanner.nextInt();
@@ -15,7 +16,14 @@ public class Brad23 {
 			sum += counter++;
 		}
 		
-		System.out.printf("1 + 2 + ... + %d = %d", n, sum);
+		System.out.printf("1 + 2 + ... + %d = %d\n", n, sum);
+		
+		System.out.println("-----");
+		counter = 1; sum = 0;
+		for ( ;counter <= n; ) {
+			sum += counter++;	
+		}
+		System.out.printf("1 + 2 + ... + %d = %d\n", n, sum);
 		
 		
 	}
