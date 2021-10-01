@@ -14,15 +14,24 @@ public class Brad24 {
 		
 		System.out.println("-----");
 		
-		System.out.println(bike.speed);
-		System.out.println(bike2.speed);
+		System.out.println(bike.getSpeed());
+		System.out.println(bike2.getSpeed());
 		
 		System.out.println("-----");
 		
-		bike.upSpeed();bike.upSpeed();bike.upSpeed();bike.upSpeed();bike.upSpeed();
-		System.out.println(bike.speed);
-		bike.downSpeed();bike.downSpeed();
-		System.out.println(bike.speed);
+//		bike.upSpeed();bike.upSpeed();bike.upSpeed();bike.upSpeed();bike.upSpeed();
+//		System.out.println(bike.getSpeed());
+//		bike.downSpeed();bike.downSpeed();
+		
+		while (bike.getSpeed() < 10) {
+			bike.upSpeed();
+		}
+		
+		//for(;bike.getSpeed()<10; bike.upSpeed());
+
+		//bike.speed = 10.1;
+		
+		System.out.println(bike.getSpeed());
 		
 	}
 
