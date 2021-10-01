@@ -1,9 +1,11 @@
 package tw.brad.myclass;
 
 public class Bike {
-	private double speed;	// 屬性, Filed, public 存取修飾字 => 全世界, private => 本類別中
+	protected double speed;	// 屬性, Filed, public 存取修飾字 => 全世界, private => 本類別中
+							// protected => 針對繼承的子類別, 或是相同 package
 	
 	public void upSpeed(){
+		System.out.println("OK1");
 		speed = speed < 1 ? 1 : speed * 1.2;
 	}
 	
