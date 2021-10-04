@@ -8,7 +8,8 @@ public class Brad28 extends JFrame{ // Brad28 extends JFrame => Brad28的物件 
 	private JButton b1, b2, b3;	// Brad28的物件 has-a b1, b2, b3
 	
 	public Brad28() {
-		
+		// super();
+		super("我的視窗程式");
 		b1 = new JButton("B1");
 		b2 = new JButton("B2");
 		b3 = new JButton("B3");
