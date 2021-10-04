@@ -25,17 +25,19 @@ public class Brad29 extends JFrame {
 		
 		add(x); add(add); add(y); add(equ); add(result);
 		equ.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("OK");
+				calAdd();
 			}
-			
 		});
 		
 		setSize(800, 72);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	private void calAdd() {
+		System.out.println("calAdd()");
 	}
 
 	public static void main(String[] args) {
