@@ -1,6 +1,6 @@
 package tw.brad.myclass;
 
-public class Bike {
+public class Bike extends Object{
 	// 成員 member => 屬性, 方法 => has-a => 物件變數.成員
 	protected double speed;	// 屬性, Filed, public 存取修飾字 => 全世界, private => 本類別中
 							// protected => 針對繼承的子類別, 或是相同 package
@@ -16,5 +16,9 @@ public class Bike {
 	
 	public double getSpeed(){
 		return speed;
+	}
+	
+	public String toString() {
+		return "Speed = " + speed;
 	}
 }
