@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import java.awt.*;
+import java.awt.event.*;
 
 public class Brad29 extends JFrame {
 	private JTextField x, y; 
@@ -23,6 +24,14 @@ public class Brad29 extends JFrame {
 		result = new JLabel();
 		
 		add(x); add(add); add(y); add(equ); add(result);
+		equ.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("OK");
+			}
+			
+		});
 		
 		setSize(800, 72);
 		setVisible(true);
