@@ -2,11 +2,13 @@ package tw.brad.myclass;
 
 public class Scooter extends Bike {	// Bike is Scooter => superclass父類別, Scotter is Bike => subclass子類別
 	private int gear;	// 0, 1, 2, 3, 4, 5 => 屬性 => Scooter 物件所 has-a
+	private String color;
 
-	// 建構方法 / 建構式 / 建構子 Constructor
+	// 建構方法 / 建構式 / 建構子 Constructor => Brad Version : 初始化方法
 	public Scooter(){
 		System.out.println("Scooter()");
 		gear = 4;
+		color = "Yellow";
 	}
 	
 	public int getGear() {	// 方法 method => (函數 function; f(x) = 2x + 1)
