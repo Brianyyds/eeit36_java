@@ -37,7 +37,11 @@ public class Brad29 extends JFrame {
 	}
 	
 	private void calAdd() {
-		System.out.println("calAdd()");
+		int intX = Integer.parseInt(x.getText());
+		int intY = Integer.parseInt(y.getText());
+		int intResult = intX + intY;
+		result.setText("" + intResult);
+		
 	}
 
 	public static void main(String[] args) {
