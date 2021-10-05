@@ -12,6 +12,7 @@ public class Scooter extends Bike {	// Bike is Scooter => superclass父類別, S
 	}
 	
 	public int getGear() {	// 方法 method => (函數 function; f(x) = 2x + 1)
+		
 		return gear;
 	}
 

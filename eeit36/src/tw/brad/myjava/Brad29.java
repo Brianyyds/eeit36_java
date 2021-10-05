@@ -31,6 +31,10 @@ public class Brad29 extends JFrame {
 			}
 		});
 		
+		
+		
+		
+		
 		setSize(800, 72);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -41,6 +45,7 @@ public class Brad29 extends JFrame {
 		int intY = Integer.parseInt(y.getText());
 		int intResult = intX + intY;
 		result.setText("" + intResult);
+		
 		
 	}
 
