@@ -3,7 +3,7 @@ package tw.brad.myjava;
 public class Brad32 {
 
 	public static void main(String[] args) {
-		String id = "A123456789";
+		String id = "C1234567Z9";
 		if (checkTWId(id)) {
 			System.out.println("OK");
 		}else {
@@ -18,25 +18,8 @@ public class Brad32 {
 		// 由9個連續數字組成
 		// 10碼
 		boolean isRight = false;
-		System.out.println(id.charAt(0));	// char '' 65 <= <= 90
-		// 寫一個陣列(字串)讓他比對在不在裡面
-		// Character.isUpperCase(c1)也可以用嗎
-		String alphaString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		
-		if (id.length() == 10) {
-			char c1 = id.charAt(0);
-			
-//			if (c1 >= 65 && c1 <=90) {
-//				System.out.println("OK1");
-//			}
-			
-//			if(alphaString.indexOf(c1) >= 0) {
-//				//System.out.println("OK1");
-//				
-//			}
-			
-			if (Character.isUpperCase(c1)) {
-			}
+		if (id.matches("[A-Z][12][0-9]{8}")) {
 			
 		}
 		
