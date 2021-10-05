@@ -13,15 +13,26 @@ public class TWId {
 	}
 	// 依照指定 isMale (男/女) 的隨機有效 id
 	public TWId(boolean isMale) {
-		
+		this(isMale, (int)(Math.random()*26));
 	}
 	// 依照指定 area (報戶口地區) 的隨機有效 id 
 	public TWId(int area) {
-		
+		this((int)(Math.random()*2) == 0 , area);
 	}
 	
-	public TWId(boolean isMale, String area) {
-		
+	public TWId(boolean isMale, int area) {
+		StringBuffer sBuffer = new StringBuffer("ABCDEFGHJKLMNPQRSTUVXYWZIO".substring(area, area+1));
+		sBuffer.append(isMale?"1":"2");
+		for (int i=0; i<7; i++) {
+			sBuffer.append((int)(Math.random()*10));
+		}
+		String temp = sBuffer.toString();
+		for (int i=0; i<10; i++) {
+			if (checkTWId(temp + i)) {
+				id = temp + i;
+				break;
+			}
+		}
 	}
 	
 	public TWId(String urId) {
