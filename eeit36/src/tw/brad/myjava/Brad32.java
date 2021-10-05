@@ -3,7 +3,7 @@ package tw.brad.myjava;
 public class Brad32 {
 
 	public static void main(String[] args) {
-		String id = "C1234567Z9";
+		String id = "W123456789";
 		if (checkTWId(id)) {
 			System.out.println("OK");
 		}else {
@@ -20,6 +20,14 @@ public class Brad32 {
 		boolean isRight = false;
 		
 		if (id.matches("[A-Z][12][0-9]{8}")) {
+			String letterString = "ABCDEFGHJKLMNPQRSTUVXYWZIO";	// 10 - 35 indexOf() => 0, 1, 2, ...
+			char c1 = id.charAt(0);	// A
+			int pos = letterString.indexOf(c1);	// 0 - 25
+			int c12 = pos + 10;	// 10 - 35
+			int n1 = c12 / 10;	// 十位數
+			int n2 = c12 % 10;	// 個位數
+			//System.out.println(n1 + ":" + n2);
+			
 			
 		}
 		
