@@ -21,7 +21,10 @@ public class TWId {
 	}
 	
 	public TWId(boolean isMale, int area) {
-		StringBuffer sBuffer = new StringBuffer("ABCDEFGHJKLMNPQRSTUVXYWZIO".substring(area, area+1));
+		String allLetterString = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
+		String areaString = allLetterString.substring(area, area+1);
+		StringBuffer sBuffer = new StringBuffer(areaString);
+		
 		sBuffer.append(isMale?"1":"2");
 		for (int i=0; i<7; i++) {
 			sBuffer.append((int)(Math.random()*10));
@@ -35,11 +38,25 @@ public class TWId {
 		}
 	}
 	
-	public TWId(String urId) {
-		
+	private TWId(String urId) {
+		id = urId;
 	}
 	
+	public static TWId createTWId(String urId) {
+		TWId twId = null;
+		if (checkTWId(urId)) {
+			twId = new TWId(urId);
+		}
+		return twId;
+	}
 	
+	public String getId() {
+		return id;
+	}
+	
+	public boolean isMale() {
+		return id.charAt(1) == '1';
+	}
 	
 	public static boolean checkTWId(String id) {
 		boolean isRight = false;
