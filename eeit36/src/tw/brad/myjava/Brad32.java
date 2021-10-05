@@ -3,7 +3,7 @@ package tw.brad.myjava;
 public class Brad32 {
 
 	public static void main(String[] args) {
-		String id = "W123456789";
+		String id = "Y120239847";
 		if (checkTWId(id)) {
 			System.out.println("OK");
 		}else {
@@ -37,10 +37,12 @@ public class Brad32 {
 			int n9 = Integer.parseInt(id.substring(7, 8));
 			int n10 = Integer.parseInt(id.substring(8, 9));
 			int n11 = Integer.parseInt(id.substring(9, 10));
+			int sum = n1*1 + n2*9 + n3*8 + n4*7 + n5*6 + n6*5 +
+					n7*4 + n8*3 + n9*2 + n10*1 + n11*1;
 			
+			isRight = sum % 10 == 0;
 		}
-		
-		
+				
 		return isRight;
 	}
 	
