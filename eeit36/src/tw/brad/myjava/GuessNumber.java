@@ -9,6 +9,7 @@ public class GuessNumber extends JFrame implements ActionListener{
 	private JButton guess;
 	private JTextArea log;
 	private String answer;
+	private int counter;
 	
 	public GuessNumber() {
 		super("猜數字遊戲");
@@ -58,13 +59,24 @@ public class GuessNumber extends JFrame implements ActionListener{
 	}
 	
 	private void doGuess() {
+		counter++;
 		String userInput = input.getText();
-		log.append(userInput + ":" + answer + "\n");
+		String result = checkAB(userInput);
+		log.append(counter + ". " + userInput + " => " + result + "\n");
 		input.setText("");
+		
+		if (result.equals("3A0B")) {
+			JOptionPane.showMessageDialog(null, "恭喜老爺,賀喜夫人");
+		}else if (counter == 10) {
+			JOptionPane.showMessageDialog(null, "XXXXXXX");
+		}
+		
 	}
 
 	private void newGame() {
+		counter = 0;
 		setAnswer(3);
+		//System.out.println(answer);
 	}
 	
 	private String checkAB(String gString) {
