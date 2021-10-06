@@ -1,13 +1,8 @@
 package tw.brad.myjava;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
-import tw.brad.myclass.Bike;
-import java.awt.*;
+import javax.swing.*;
+import java.awt.*;	// * 表示在 java.awt Package 下所有的東西
+import java.awt.event.*;
 
 public class GuessNumber extends JFrame {
 	private JTextField input;
@@ -26,6 +21,7 @@ public class GuessNumber extends JFrame {
 		layoutView();
 		
 		// 處理使用者的事件
+		setEvent();
 		
 		setVisible(true);
 		setSize(640,480);
@@ -45,8 +41,24 @@ public class GuessNumber extends JFrame {
 		topJPanel.add(input, BorderLayout.CENTER);
 	}
 	
+	// 處理使用者的事件
+	private void setEvent() {
+		guess.addActionListener(new MyEventListener());
+	}
+	
+	
+	
+	
 	public static void main(String[] args) {
 		new GuessNumber();
 	}
-
 }
+
+class MyEventListener implements ActionListener{
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("OK");
+	}
+}
+
+
+
