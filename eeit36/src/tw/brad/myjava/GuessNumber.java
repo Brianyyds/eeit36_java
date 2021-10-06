@@ -8,6 +8,7 @@ public class GuessNumber extends JFrame implements ActionListener{
 	private JTextField input;
 	private JButton guess;
 	private JTextArea log;
+	private String answer;
 	
 	public GuessNumber() {
 		super("猜數字遊戲");
@@ -43,15 +44,41 @@ public class GuessNumber extends JFrame implements ActionListener{
 	
 	// 處理使用者的事件
 	private void setEvent() {
-		// guess.addActionListener(new MyEventListener());
-		// guess.addActionListener(this);
+//		guess.addActionListener(new MyEventListener());
+//		guess.addActionListener(this);
 		guess.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("OK3");
+				//System.out.println("OK3");
+				doGuess();
 			}
 		});
 	}
+	
+	private void doGuess() {
+		setAnswer(3);
+		System.out.println(answer);
+	}
 
+	private void setAnswer(int digits) {
+		int nums = 10;
+		int[] poker = new int[nums];
+		
+		// 文具行買回來的
+		for (int i = 0; i < nums; i++) poker[i] = i;
+		
+		// 開始洗牌
+		for (int i = nums -1 ; i > 0 ; i--) {
+			int rand = (int)(Math.random() * (i+1));
+			// poker[rand] <=> poker[i];
+			int temp = poker[rand];
+			poker[rand] = poker[i];
+			poker[i] = temp;
+		}
+		
+		answer = "" + poker[0] + poker[1] + poker[2];
+	}
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("OK2");
 	}
