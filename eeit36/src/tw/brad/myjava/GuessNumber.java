@@ -2,6 +2,8 @@ package tw.brad.myjava;
 
 import javax.swing.JFrame;
 
+import tw.brad.myclass.Bike;
+
 public class GuessNumber extends JFrame {
 	public GuessNumber() {
 		super("猜數字遊戲");
