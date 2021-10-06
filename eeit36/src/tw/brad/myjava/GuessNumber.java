@@ -67,6 +67,20 @@ public class GuessNumber extends JFrame implements ActionListener{
 		setAnswer(3);
 	}
 	
+	private String checkAB(String gString) {
+		int A, B; A = B = 0;
+		for (int i=0; i<answer.length(); i++) {
+			char gc = gString.charAt(i);
+			char ac = answer.charAt(i);
+			if (gc == ac) {
+				A++;
+			}else if(answer.indexOf(gc) >= 0) {
+				B++;
+			}
+		}
+		return String.format("%dA%dB", A, B);
+	}
+	
 	private void setAnswer(int digits) {
 		int nums = 10;
 		int[] poker = new int[nums];
