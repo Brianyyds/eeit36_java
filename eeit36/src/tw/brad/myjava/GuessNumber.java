@@ -55,7 +55,7 @@ public class GuessNumber extends JFrame implements ActionListener{
 	}
 	
 	private void doGuess() {
-		setAnswer(3);
+		setAnswer(5);
 		System.out.println(answer);
 	}
 
@@ -75,7 +75,11 @@ public class GuessNumber extends JFrame implements ActionListener{
 			poker[i] = temp;
 		}
 		
-		answer = "" + poker[0] + poker[1] + poker[2];
+		StringBuffer sBuffer = new StringBuffer();
+		for (int i=0; i<digits; i++) {
+			sBuffer.append(poker[i]);
+		}
+		answer = sBuffer.toString();
 	}
 	
 	
