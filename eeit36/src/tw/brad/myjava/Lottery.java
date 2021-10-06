@@ -2,6 +2,7 @@ package tw.brad.myjava;
 
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Lottery {
 
@@ -15,7 +16,7 @@ public class Lottery {
 	}
 	
 	static String createLottery() {
-		HashSet<Integer> lottery = new HashSet<>();
+		TreeSet<Integer> lottery = new TreeSet<>();
 		while (lottery.size() < 6) {
 			lottery.add((int)(Math.random()*49+1));
 		}
