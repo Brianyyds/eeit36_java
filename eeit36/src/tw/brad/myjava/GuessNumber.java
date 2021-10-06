@@ -27,6 +27,9 @@ public class GuessNumber extends JFrame implements ActionListener{
 		setVisible(true);
 		setSize(640,480);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		// 直接開新局
+		newGame();
 	}
 	
 	// 配置版面
@@ -55,10 +58,15 @@ public class GuessNumber extends JFrame implements ActionListener{
 	}
 	
 	private void doGuess() {
-		setAnswer(5);
-		System.out.println(answer);
+		String userInput = input.getText();
+		log.append(userInput + ":" + answer + "\n");
+		input.setText("");
 	}
 
+	private void newGame() {
+		setAnswer(3);
+	}
+	
 	private void setAnswer(int digits) {
 		int nums = 10;
 		int[] poker = new int[nums];
