@@ -67,8 +67,10 @@ public class GuessNumber extends JFrame implements ActionListener{
 		
 		if (result.equals("3A0B")) {
 			JOptionPane.showMessageDialog(null, "恭喜老爺,賀喜夫人");
-		}else if (counter == 10) {
-			JOptionPane.showMessageDialog(null, "XXXXXXX");
+			newGame();
+		}else if (counter == 3) {
+			JOptionPane.showMessageDialog(null, "XXXXXXX: " + answer);
+			newGame();
 		}
 		
 	}
@@ -76,7 +78,8 @@ public class GuessNumber extends JFrame implements ActionListener{
 	private void newGame() {
 		counter = 0;
 		setAnswer(3);
-		//System.out.println(answer);
+		log.setText("");
+		System.out.println(answer);
 	}
 	
 	private String checkAB(String gString) {
