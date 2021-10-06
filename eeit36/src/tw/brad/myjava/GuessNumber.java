@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;	// * 表示在 java.awt Package 下所有的東西
 import java.awt.event.*;
 
-public class GuessNumber extends JFrame {
+public class GuessNumber extends JFrame implements ActionListener{
 	private JTextField input;
 	private JButton guess;
 	private JTextArea log;
@@ -43,10 +43,18 @@ public class GuessNumber extends JFrame {
 	
 	// 處理使用者的事件
 	private void setEvent() {
-		guess.addActionListener(new MyEventListener());
+		// guess.addActionListener(new MyEventListener());
+		// guess.addActionListener(this);
+		guess.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("OK3");
+			}
+		});
 	}
-	
-	
+
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("OK2");
+	}
 	
 	
 	public static void main(String[] args) {
@@ -56,7 +64,7 @@ public class GuessNumber extends JFrame {
 
 class MyEventListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("OK");
+		System.out.println("OK1");
 	}
 }
 
