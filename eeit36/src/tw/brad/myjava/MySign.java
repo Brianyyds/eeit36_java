@@ -6,8 +6,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import tw.brad.myclass.MyDrawer;
+
 public class MySign extends JFrame{
 	private JButton clearButton, undoButton, redoButton, saveButton;
+	private MyDrawer myDrawer;
 	
 	public MySign() {
 		super("簽名");
@@ -16,6 +19,8 @@ public class MySign extends JFrame{
 		undoButton = new JButton("Undo");
 		redoButton = new JButton("Redo");
 		saveButton = new JButton("Save");
+		
+		myDrawer = new MyDrawer();
 		
 		// 版面配置
 		layoutView();
@@ -34,6 +39,8 @@ public class MySign extends JFrame{
 		
 		topPanel.add(clearButton); topPanel.add(undoButton);
 		topPanel.add(redoButton); topPanel.add(saveButton);
+		
+		add(myDrawer, BorderLayout.CENTER);
 		
 		
 	}
