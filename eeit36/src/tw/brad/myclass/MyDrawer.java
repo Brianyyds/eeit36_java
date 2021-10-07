@@ -70,9 +70,13 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 			
 			lines.add(line);
 		}
-		
-		
 	}
+	
+	public void clear() {
+		lines.clear();
+		repaint();
+	}
+	
 	
 }
 

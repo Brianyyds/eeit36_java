@@ -1,6 +1,8 @@
 package tw.brad.myjava;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,6 +27,8 @@ public class MySign extends JFrame{
 		// 版面配置
 		layoutView();
 		
+		setEvent();
+		
 		setSize(800, 480);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -41,8 +45,15 @@ public class MySign extends JFrame{
 		topPanel.add(redoButton); topPanel.add(saveButton);
 		
 		add(myDrawer, BorderLayout.CENTER);
-		
-		
+	}
+	
+	private void setEvent() {
+		clearButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				myDrawer.clear();
+			}
+		});
 	}
 	
 	public static void main(String[] args) {
