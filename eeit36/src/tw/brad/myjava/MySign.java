@@ -5,13 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.text.AttributeSet.ColorAttribute;
 
 import tw.brad.myclass.MyDrawer;
 
 public class MySign extends JFrame{
-	private JButton clearButton, undoButton, redoButton, saveButton;
+	private JButton clearButton, undoButton, redoButton, saveButton, chColorButton;
 	private MyDrawer myDrawer;
 	
 	public MySign() {
@@ -21,6 +23,7 @@ public class MySign extends JFrame{
 		undoButton = new JButton("Undo");
 		redoButton = new JButton("Redo");
 		saveButton = new JButton("Save");
+		chColorButton = new JButton("Color");
 		
 		myDrawer = new MyDrawer();
 		
@@ -43,6 +46,7 @@ public class MySign extends JFrame{
 		
 		topPanel.add(clearButton); topPanel.add(undoButton);
 		topPanel.add(redoButton); topPanel.add(saveButton);
+		topPanel.add(chColorButton);
 		
 		add(myDrawer, BorderLayout.CENTER);
 	}
@@ -66,6 +70,19 @@ public class MySign extends JFrame{
 				myDrawer.redo();
 			}
 		});
+		chColorButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				showColorDialog();
+			}
+		});
+	}
+	
+	private void showColorDialog() {
+		Color newColor = JColorChooser.showDialog(null, "選擇畫筆顏色", myDrawer.getDefaultColor());
+		if (newColor != null) {
+			myDrawer.setDefaultColor(newColor);
+		}
 	}
 	
 	public static void main(String[] args) {

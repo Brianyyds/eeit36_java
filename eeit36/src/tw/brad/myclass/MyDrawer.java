@@ -10,6 +10,7 @@ import java.util.LinkedList;
 
 public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 	private LinkedList<LinkedList<HashMap<String, Integer>>> lines, recycler;
+	private Color defaultColor;
 	
 	public MyDrawer() {
 		setBackground(Color.yellow);
@@ -20,6 +21,8 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 		MyMouseListener myMouseListener = new MyMouseListener();
 		addMouseMotionListener(myMouseListener);
 		addMouseListener(myMouseListener);
+		
+		defaultColor = Color.GREEN;
 	}
 
 //	@Override
@@ -35,7 +38,8 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 		
 		Graphics2D g2d = (Graphics2D)g;
 		
-		g2d.setColor(Color.BLUE);
+		g2d.setColor(defaultColor);
+		
 		g2d.setStroke(new BasicStroke(4.123f));
 
 		// 畫所有在 lines 中的每一個 line
@@ -93,6 +97,9 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 			repaint();
 		}
 	}
+	
+	public Color getDefaultColor() {return defaultColor;}
+	public void setDefaultColor(Color color) {defaultColor = color;}
 
 	
 }
