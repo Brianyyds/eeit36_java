@@ -2,6 +2,7 @@ package tw.brad.myclass;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
+import javax.swing.plaf.ColorUIResource;
 import javax.swing.text.AttributeSet.ColorAttribute;
 import java.awt.*;
 import java.awt.event.*;
@@ -38,12 +39,15 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 		
 		Graphics2D g2d = (Graphics2D)g;
 		
-		g2d.setColor(defaultColor);
+		//g2d.setColor(defaultColor);
 		
 		g2d.setStroke(new BasicStroke(4.123f));
 
 		// 畫所有在 lines 中的每一個 line
 		for (LinkedList<HashMap<String, Integer>> line : lines) {
+
+			g2d.setColor(new Color(line.get(0).get("color")));
+			
 			// 畫一條 line
 			for (int i=1; i<line.size(); i++) {
 				HashMap<String, Integer> p0 = line.get(i-1);
@@ -69,6 +73,7 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 		public void mousePressed(MouseEvent e) {
 			HashMap<String, Integer> point = new HashMap<>();
 			point.put("x", e.getX()); point.put("y", e.getY());
+			point.put("color", defaultColor.getRGB());
 			
 			LinkedList<HashMap<String, Integer>> line = new LinkedList<>();
 			line.add(point);
