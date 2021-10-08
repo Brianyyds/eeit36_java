@@ -54,6 +54,18 @@ public class MySign extends JFrame{
 				myDrawer.clear();
 			}
 		});
+		undoButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				myDrawer.undo();
+			}
+		});
+		redoButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				myDrawer.redo();
+			}
+		});
 	}
 	
 	public static void main(String[] args) {

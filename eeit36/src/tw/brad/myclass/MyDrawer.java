@@ -9,12 +9,13 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
-	private LinkedList<LinkedList<HashMap<String, Integer>>> lines;
+	private LinkedList<LinkedList<HashMap<String, Integer>>> lines, recycler;
 	
 	public MyDrawer() {
 		setBackground(Color.yellow);
 	
 		lines = new LinkedList<>();
+		recycler = new LinkedList<>();
 		
 		MyMouseListener myMouseListener = new MyMouseListener();
 		addMouseMotionListener(myMouseListener);
@@ -69,6 +70,8 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 			line.add(point);
 			
 			lines.add(line);
+			
+			recycler.clear();
 		}
 	}
 	
@@ -77,6 +80,20 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 		repaint();
 	}
 	
+	public void undo() {
+		if (lines.size() > 0) {
+			recycler.add(lines.removeLast()) ;
+			repaint();
+		}
+	}
+
+	public void redo() {
+		if (recycler.size() > 0) {
+			lines.add(recycler.removeLast()) ;
+			repaint();
+		}
+	}
+
 	
 }
 
