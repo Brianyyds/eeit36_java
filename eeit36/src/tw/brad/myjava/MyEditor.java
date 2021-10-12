@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 
 import javax.swing.JButton;
@@ -56,6 +57,18 @@ public class MyEditor extends JFrame {
 				openFile();
 			}
 		});
+		saveBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveFile();
+			}
+		});
+		saveAsBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveAsFile();
+			}
+		});
 	}
 	
 	private void openFile() {
@@ -77,6 +90,37 @@ public class MyEditor extends JFrame {
 		}
 	}
 	
+	private void saveFile() {
+		if (openFile != null) {
+			try {
+				FileOutputStream fout = new FileOutputStream(openFile);
+				fout.write(textArea.getText().getBytes());
+				fout.flush();
+				fout.close();
+				JOptionPane.showMessageDialog(null, "Save OK");
+			}catch(Exception e) {
+				System.out.println(e.toString());
+			}
+		}else {
+			saveAsFile();
+		}
+	}
+	
+	private void saveAsFile() {
+		JFileChooser jfc;
+		String openDir;
+		if (openFile != null) {
+			openDir = openFile.getParent();
+		}else {
+			openDir = ".";
+		}
+		
+		jfc = new JFileChooser(openDir);
+		if (jfc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+			openFile = jfc.getSelectedFile();
+			saveFile();
+		}
+	}
 	
 	public static void main(String[] args) {
 		new MyEditor();
