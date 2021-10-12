@@ -10,10 +10,15 @@ public class Brad55 {
 		try {
 			BufferedReader br = new BufferedReader(
 					new FileReader("dir1/file1.txt"));
-			String line1 = br.readLine();
-			System.out.println(line1);
-			String line2 = br.readLine();
-			System.out.println(line2);
+//			String line1 = br.readLine();
+//			System.out.println(line1);
+//			String line2 = br.readLine();
+//			System.out.println(line2);
+			
+			String line; int i = 1;
+			while ((line = br.readLine()) != null) {
+				System.out.println(i++ + ". " + line);
+			}
 			
 			br.close();
 		} catch (Exception e) {

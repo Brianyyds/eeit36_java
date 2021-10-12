@@ -1,13 +1,23 @@
 package tw.brad.myclass;
 
-import javax.swing.*;
-import javax.swing.event.MouseInputAdapter;
-import javax.swing.plaf.ColorUIResource;
-import javax.swing.text.AttributeSet.ColorAttribute;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
+
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 	private LinkedList<LinkedList<HashMap<String, Integer>>> lines, recycler;
@@ -105,6 +115,42 @@ public class MyDrawer extends JPanel {	// MyDrawer的物件實體 is-a JPanel
 	
 	public Color getDefaultColor() {return defaultColor;}
 	public void setDefaultColor(Color color) {defaultColor = color;}
+
+	public void saveJPEG() {
+		BufferedImage img = new BufferedImage(
+				getWidth(), getHeight(), 
+				BufferedImage.TYPE_INT_RGB);
+		
+		Graphics g = img.getGraphics();
+		print(g);
+		
+		try {
+			ImageIO.write(img, "jpg", new File("dir1/brad.jpg"));
+		} catch (IOException e) {
+			System.out.println(e.toString());
+		}
+	}
+	
+	public void saveObj() throws Exception {
+		ObjectOutputStream oout = new ObjectOutputStream(
+				new FileOutputStream("dir1/brad.sign"));
+		oout.writeObject(lines);
+		oout.flush();
+		oout.close();
+	}
+
+	public void loadObj() throws Exception {
+		ObjectInputStream oin = new ObjectInputStream(
+				new FileInputStream("dir1/brad.sign"));
+		Object obj = oin.readObject(); 
+		if (obj instanceof LinkedList) {
+			lines = (LinkedList<LinkedList<HashMap<String, Integer>>>)obj;
+			repaint();
+		}else {
+			throw new Exception();
+		}
+		oin.close();
+	}
 
 	
 }
