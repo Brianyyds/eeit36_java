@@ -4,10 +4,13 @@ import java.io.Serializable;
 
 public class Student implements Serializable{
 	private int ch, math, eng;
-	public Student(int ch, int math, int eng) {
+	private Bike bike;
+	
+	public Student(int ch, int math, int eng, Bike bike) {
 		this.ch = ch;
 		this.math = math;
 		this.eng = eng;
+		this.bike = bike;
 	}
 	public int sum() {
 		return ch + math + eng;
