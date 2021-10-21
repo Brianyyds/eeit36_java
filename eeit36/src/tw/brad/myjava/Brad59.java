@@ -7,6 +7,7 @@ import java.net.SocketException;
 public class Brad59 {
 
 	public static void main(String[] args) {
+		// 有點不太懂58跟59的關聯性是甚麼 為甚麼執行58能抓到59的資料
 		byte[] buf = new byte[4096];
 		try {
 			DatagramSocket socket = new DatagramSocket(7777);
