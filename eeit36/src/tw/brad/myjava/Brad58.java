@@ -16,7 +16,7 @@ public class Brad58 {
 					InetAddress.getByName("127.0.0.1"), 7777);
 			socket.send(packet);
 			socket.close();
-			System.out.println("OK");
+			System.out.println("Send OK");
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
