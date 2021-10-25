@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class Brad72 {
+public class Brad76 {
 
 	public static void main(String[] args) {
 		
@@ -18,9 +18,7 @@ public class Brad72 {
 			Connection connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/eeit36", prop);
 			Statement stmt = connection.createStatement();
-			int count = stmt.executeUpdate(
-					"INSERT INTO cust (cname,tel,birthday) VALUES ('Brad','123','1999-01-02')" +
-					", ('Andy','222','1999-02-03'), ('Tony', '333', '1998-03-04')");
+			int count = stmt.executeUpdate("DELETE FROM cust WHERE cname = 'Brad'");
 			System.out.println(count);
 			
 			connection.close();

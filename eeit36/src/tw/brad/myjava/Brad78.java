@@ -2,11 +2,12 @@ package tw.brad.myjava;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class Brad72 {
+public class Brad78 {
 
 	public static void main(String[] args) {
 		
@@ -18,10 +19,15 @@ public class Brad72 {
 			Connection connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/eeit36", prop);
 			Statement stmt = connection.createStatement();
-			int count = stmt.executeUpdate(
-					"INSERT INTO cust (cname,tel,birthday) VALUES ('Brad','123','1999-01-02')" +
-					", ('Andy','222','1999-02-03'), ('Tony', '333', '1998-03-04')");
-			System.out.println(count);
+			ResultSet rs = stmt.executeQuery("SELECT * FROM cust ORDER BY cname");
+			
+			while (rs.next()) {
+				String id = rs.getString(1);
+				String cname = rs.getString(2);
+				String tel = rs.getString(3);
+				String birthday = rs.getString(4);
+				System.out.println(id + ":" + cname + ":" + tel + ":" + birthday);
+			}
 			
 			connection.close();
 			System.out.println("OK4");

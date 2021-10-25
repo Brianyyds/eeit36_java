@@ -18,7 +18,8 @@ public class Brad73 {
 			Connection connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/eeit36", prop);
 			Statement stmt = connection.createStatement();
-			stmt.execute("INSERT INTO cust (cname,tel,birthday) VALUES ('Brad','123','1999-01-02')");
+			boolean isQuery = stmt.execute("UPDATE cust SET cname = 'Eric', tel = '1111' WHERE id = 8");
+			System.out.println(isQuery?"Query":"Update");
 			
 			connection.close();
 			System.out.println("OK4");

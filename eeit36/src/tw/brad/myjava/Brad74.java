@@ -18,7 +18,8 @@ public class Brad74 {
 			Connection connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/eeit36", prop);
 			Statement stmt = connection.createStatement();
-			stmt.execute("DELETE FROM cust WHERE id = 5");
+			boolean isQuery = stmt.execute("DELETE FROM cust WHERE id = 5");
+			System.out.println(isQuery?"Query":"Update");
 			
 			connection.close();
 			System.out.println("OK4");
