@@ -3,11 +3,14 @@ package tw.brad.myjava;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.event.MouseInputAdapter;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,19 +31,32 @@ public class MyGame extends JFrame{
 
 	private class MyPanel extends JPanel {
 		private Timer timer;
-		private int x, y, dx, dy;
+		private LinkedList<BallTask> balls;
 		private int viewW, viewH;
+		private BufferedImage imgBall;
 		
 		public MyPanel() {
 			setBackground(Color.YELLOW);
+			
+			try {
+				imgBall = ImageIO.read(new File("dir1/ball0.png"));
+			} catch (IOException e) {
+				System.out.println(e.toString());
+			} 
+			
+			balls = new LinkedList<>();
 			timer = new Timer();
 			timer.schedule(new Refresh(), 0, 16);
-			timer.schedule(new BallTask(), 1*1000, 30);
-			x = y = 0;
-			dx = dy = 12;
+			addMouseListener(new MyMouseAdapter());
+			
 		}
 		
 		private class BallTask extends TimerTask {
+			int x, y, dx, dy;
+			public BallTask(int x, int y) {
+				this.x = x; this.y = y;
+				dx = dy = 12;		
+			}
 			@Override
 			public void run() {
 				if (x < 0 || x + 72 >= viewW ) {
@@ -63,18 +79,26 @@ public class MyGame extends JFrame{
 			}
 		}
 		
+		private class MyMouseAdapter extends MouseAdapter {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				BallTask ball = new BallTask(e.getX()-36, e.getY()-36);
+				timer.schedule(ball, 1*1000, 30);
+				balls.add(ball);
+			}
+			
+		}
+		
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			viewW = getWidth(); viewH = getHeight();
 			
-			try {
-				BufferedImage img = ImageIO.read(new File("dir1/ball0.png"));
-				g.drawImage(img, x, y, null);
-				
-			} catch (IOException e) {
-				System.out.println(e.toString());
-			} 
+			for(BallTask ball : balls) {
+				g.drawImage(imgBall, ball.x, ball.y, null);
+			}
+			
 		}
 	}
 	
