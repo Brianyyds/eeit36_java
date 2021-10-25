@@ -11,12 +11,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.text.AttributeSet.ColorAttribute;
 
+import tw.brad.myclass.MyClock;
 import tw.brad.myclass.MyDrawer;
 
 public class MySign extends JFrame{
 	private JButton clearButton, undoButton, redoButton, saveButton, chColorButton;
 	private JButton saveObjButton, loadObjButton;
 	private MyDrawer myDrawer;
+	private MyClock myClock;
 	
 	public MySign() {
 		super("簽名");
@@ -28,6 +30,7 @@ public class MySign extends JFrame{
 		chColorButton = new JButton("Color");
 		saveObjButton = new JButton("Save Obj");
 		loadObjButton = new JButton("Load Obj");
+		myClock = new MyClock();
 		
 		myDrawer = new MyDrawer();
 		
@@ -52,6 +55,7 @@ public class MySign extends JFrame{
 		topPanel.add(redoButton); topPanel.add(saveButton);
 		topPanel.add(chColorButton);
 		topPanel.add(saveObjButton);topPanel.add(loadObjButton);
+		topPanel.add(myClock);
 		
 		add(myDrawer, BorderLayout.CENTER);
 	}

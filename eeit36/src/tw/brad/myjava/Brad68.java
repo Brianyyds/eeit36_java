@@ -9,7 +9,7 @@ public class Brad68 {
 		Timer timer = new Timer();
 		
 		MyTask myTask = new MyTask();
-		timer.schedule(myTask, 10*1000);
+		timer.schedule(myTask, 1*1000, 1*1000);
 		
 		EndTask endTask = new EndTask(timer);
 		timer.schedule(endTask, 12*1000);
@@ -20,9 +20,10 @@ public class Brad68 {
 }
 
 class MyTask extends TimerTask {
+	private int i;
 	@Override
 	public void run() {
-		System.out.println("OK");
+		System.out.println("OK:" + i++);
 	}
 }
 class EndTask extends TimerTask {

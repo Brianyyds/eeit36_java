@@ -7,18 +7,25 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import tw.brad.myclass.MyClock;
+
 public class RacingV2 extends JFrame {
 	private JButton goButton;
 	private JLabel[] lanes = new JLabel[8];
 	private Car[] cars = new Car[8];
 	
+	private MyClock myClock;
+	
 	public RacingV2() {
 		super("Racing Game");
 		
-		setLayout(new GridLayout(9,1));
+		setLayout(new GridLayout(10,1));
 		
 		goButton = new JButton("Go!");
 		add(goButton);
+		
+		myClock = new MyClock();
+		add(myClock);
 		
 		for (int i=0; i<8; i++) {
 			lanes[i] = new JLabel( (i+1) + ". " );
