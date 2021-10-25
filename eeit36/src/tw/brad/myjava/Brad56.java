@@ -8,10 +8,8 @@ public class Brad56 {
 
 	public static void main(String[] args) {
 		
-		try {
-			BufferedReader reader = new BufferedReader(
-					new FileReader("dir1/maskdata.csv"));
-			
+		try (BufferedReader reader = new BufferedReader(
+				new FileReader("dir1/maskdata.csv"))) {
 			reader.readLine();
 			// 醫事機構代碼,醫事機構名稱,醫事機構地址,醫事機構電話,成人口罩剩餘數,兒童口罩剩餘數,來源資料時間
 			
@@ -24,7 +22,6 @@ public class Brad56 {
 				}
 			}
 			
-			reader.close();
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
