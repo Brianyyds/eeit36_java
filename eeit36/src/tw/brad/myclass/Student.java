@@ -19,4 +19,8 @@ public class Student implements Serializable{
 	public double avg() {
 		return sum() / 3.0;
 	}
+	
+	public double getBikeSpeed() {
+		return bike.getSpeed();
+	}
 }
