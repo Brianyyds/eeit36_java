@@ -20,10 +20,13 @@ public class Brad80 {
 		Properties prop = new Properties();
 		prop.put("user", "root");
 		prop.put("password", "root");
+		String sqlDelAllString = "DELETE FROM mask";
 		String sql = "INSERT INTO mask (hid,hname,haddr,htel,anum,cnum,dtime) VALUES (?,?,?,?,?,?,?)";
 		
 		try (Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/eeit36", prop)) {
+			connection.createStatement().executeUpdate(sqlDelAllString);
+			
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 
 			URL url = new URL("https://data.nhi.gov.tw/resource/mask/maskdata.csv");

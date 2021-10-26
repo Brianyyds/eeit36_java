@@ -6,13 +6,19 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import netscape.javascript.JSObject;
+
 public class Brad81 {
 
 	public static void main(String[] args) {
 		String jsonData = fetchOpendata();
-		System.out.println(jsonData);
-		parseOpendata();
-		insertOpendata();
+		if (jsonData != null) {
+			parseOpendata(jsonData);
+			insertOpendata();
+		}
 	}
 	
 	private static String fetchOpendata() {
@@ -41,8 +47,13 @@ public class Brad81 {
 
 	}
 	
-	private static void parseOpendata() {
-		
+	private static void parseOpendata(String json) {
+		JSONArray root = new JSONArray(json);
+		for (int i=0; i<root.length(); i++) {
+			JSONObject row = root.getJSONObject(i);
+			String name = row.getString("Name");
+			System.out.println(name);
+		}
 	}
 	
 	private static void insertOpendata() {
