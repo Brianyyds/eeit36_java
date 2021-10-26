@@ -57,22 +57,6 @@ public class Brad80 {
 		
 		// 醫事機構代碼,醫事機構名稱,醫事機構地址,醫事機構電話,成人口罩剩餘數,兒童口罩剩餘數,來源資料時間
 		// 0145080011,衛生福利部花蓮醫院豐濱原住民分院,花蓮縣豐濱鄉豐濱村光豐路４１號,8358141,2450,940,2021/10/12 15:20:24
-		try {
-			URL url = new URL("https://data.nhi.gov.tw/resource/mask/maskdata.csv");
-			URLConnection connection =  url.openConnection();
-			connection.connect();
-			
-			BufferedInputStream bin = new BufferedInputStream(connection.getInputStream());
-			BufferedReader reader = new BufferedReader(new InputStreamReader(bin));
-			String line;
-			while ( (line = reader.readLine()) != null) {
-				
-			}
-			bin.close();
-			
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		}
 
 	}
 
